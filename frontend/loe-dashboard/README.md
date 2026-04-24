@@ -1,16 +1,120 @@
-# React + Vite
+LOE Agent - AI-Powered Effort Estimation & Sprint Planning
+A full-stack application combining an AI agent with a modern web dashboard to predict project effort levels, analyze team capacity, and provide data-driven sprint planning recommendations.
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+🎯 Overview
+The LOE (Level of Effort) Agent uses OpenAI's GPT models to intelligently estimate project effort by analyzing:
 
-Currently, two official plugins are available:
+Calendar availability (working days, holidays)
+Team capacity and meeting overhead
+Project task type and complexity
+Historical utilization patterns
+Result: Risk assessment, effort predictions, and actionable AI suggestions for sprint planning.
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+📁 Project Structure
+🚀 Quick Start
+Prerequisites
+Python 3.8+
+Node.js 16+
+OpenAI API Key (get one here)
+Backend Setup
+Navigate to backend directory
 
-## React Compiler
+Create .env file with your API keys
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+Install dependencies
 
-## Expanding the ESLint configuration
+Run the API server
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Server runs at: http://localhost:8000
+
+Frontend Setup
+Navigate to frontend directory
+
+Install dependencies
+
+Run development server
+
+Dashboard opens at: http://localhost:5173
+
+🔧 API Reference
+Health Check
+Returns server status.
+
+Analyze Effort
+Response:
+
+📊 Dashboard Features
+Sprint Configuration: Input working days, holidays, capacity, and meetings
+Real-time Calculations: Instant LOE estimates with visual feedback
+Risk Assessment: Color-coded risk levels (🟢 Low / 🟡 Medium / 🔴 High)
+Utilization Tracking: Visual progress bar showing capacity utilization
+AI Suggestions: 3 actionable recommendations from the AI agent
+Responsive Design: Works on desktop and mobile devices
+🤖 How It Works
+User Input: Enter sprint parameters (days, holidays, capacity, meetings, task type)
+Calculation: Backend calculates working days and base LOE in hours
+AI Analysis: GPT-4o-mini analyzes the data and generates:
+Meeting overhead estimation
+Adjusted LOE after accounting for meetings
+Risk classification (low/medium/high)
+Team-specific recommendations
+Results Display: Dashboard visualizes metrics and risk level
+🛠️ Configuration
+Supported Task Types
+development
+testing
+design
+research
+deployment
+planning
+Risk Thresholds
+Low: < 70% utilization
+Medium: 70-90% utilization
+High: > 90% utilization
+📦 Dependencies
+Backend:
+
+fastapi - Web framework
+uvicorn - ASGI server
+openai - GPT API client
+pydantic - Data validation
+python-dotenv - Environment variables
+Frontend:
+
+react - UI library
+vite - Build tool
+Pure CSS (no external UI library)
+🔐 Security Notes
+Keep .env files private (listed in .gitignore)
+Never commit API keys to version control
+Use environment variables for sensitive data
+CORS enabled for local development only
+📈 Example Usage
+Input:
+
+30-day sprint
+8 holiday days
+2 extra holidays
+80% team capacity
+3 meetings/week
+Development task type
+Output:
+
+🐛 Troubleshooting
+Backend connection error?
+
+Ensure backend is running on http://localhost:8000
+Check firewall/port availability
+API key error?
+
+Verify OPEN_AI_KEY is set correctly in .env
+Check OpenAI account has active billing
+No suggestions appearing?
+
+Verify GPT-4o-mini model is available in your OpenAI account
+Check API response in browser DevTools
+📝 License
+Internal project - use for team planning and estimation.
+
+👤 Author
+Built with ❤️ for intelligent sprint planning
